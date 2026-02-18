@@ -8,3 +8,4 @@
 | 6 | HWasnPhtq9AVKe0dmk45nxy20cvUa6EG | `cd inhere` `find . -type f -size 1033c ! -executable` |
 | 7 | morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj | `find / -user bandit7 -group bandit6 -size 33c 2>/dev/null` |
 | 8 | dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc | `grep "millionth" data.txt"` |
+| 9 | 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM | `sort data.txt \|\ uniq -u` |
