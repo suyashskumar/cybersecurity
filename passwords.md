@@ -19,4 +19,4 @@
 | 17 | EReVavePLFHtFlFsjn3hyzMlvSuSAcRD | `nmap -sV -p 31000-32000 localhost` `openssl s_client -connect localhost:31790 -ign_eof` |
 | 18 | x2gLTTjFwMOhQ8oWNbMN362QKxfRqGlO | `diff passwords.new passwords.old` |
 | 19 | cGWpMaKXVwDUNgPAVJbWYuGHVn9zl3j8 | `ssh bandit18@bandit.labs.overwire.org "cat readme"` |
-| 20 | 0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO | ``find / -perm -4000 -user bandit20 2>/dev/null` `./bandit20-do cat /etc/bandit_pass/bandit20` |
+| 20 | 0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO | `find / -perm -4000 -user bandit20 2>/dev/null` `./bandit20-do cat /etc/bandit_pass/bandit20` |
