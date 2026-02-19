@@ -1,27 +1,27 @@
-| Level | Password Used To Reach The Level | Command Used |
-| :--- | :--- | :--- |
-| 1 | ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If | `cat readme` |
-| 2 | 263JGJPfgU6LtdEvgfWU1XP5yac29mFx | `cat ./-` |
-| 3 | MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx | `cat ./"--spaces in this filename--"` |
-| 4 | 2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ | `cd inhere` `ls -a` |
-| 5 | 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw | `cd inhere` `file ./*` |
-| 6 | HWasnPhtq9AVKe0dmk45nxy20cvUa6EG | `cd inhere` `find . -type f -size 1033c ! -executable` |
-| 7 | morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj | `find / -user bandit7 -group bandit6 -size 33c 2>/dev/null` |
-| 8 | dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc | `grep "millionth" data.txt"` |
-| 9 | 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM | `sort data.txt \| uniq -u` |
-| 10 | FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey | `strings data.txt \| grep "=="` |
-| 11 | dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr | `base64 -d data.txt` |
-| 12 | 7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4 | `cat data.txt \| tr 'A-Za-z' 'N-ZA-Mn-za-m'` |
-| 13 | FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn | `mktemp -d` `cp ~/data.txt .` `xxd -r data.txt > data2` `mv data2 data2.gz \|\| gunzip data2.gz` `bunzip2 data2` `mv data2.out data2.gz \|\| gunzip data2.gz` `tar -xf data2` `tar -xf data5.bin` `bunzip2 data6.bin` `tar -xf data6.bin.out` `mv data8.bin data8.bin.gz \|\| gunzip data8.bin.gz` `cat data8.bin` |
-| 14 | MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS | `scp -P 2220 bandit13@bandit.labs.overthewire.org:~/sshkey.private ./bandit14.id_rsa` `chmod 600 bandit14.id_rsa` `ssh -i bandit14.id_rsa bandit14@bandit.labs.overthewire.org -p 2220` |
-| 15 | 8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo | `cat etc/bandit_pass/bandit14` `nc localhost 30000`|
-| 16 | kSkvUpMQ7lBYyCM4GBPvCvT1BfWRy0Dx | `openssl s_client -connect localhost:30001` |
-| 17 | EReVavePLFHtFlFsjn3hyzMlvSuSAcRD | `nmap -sV -p 31000-32000 localhost` `openssl s_client -connect localhost:31790 -ign_eof` |
-| 18 | x2gLTTjFwMOhQ8oWNbMN362QKxfRqGlO | `diff passwords.new passwords.old` |
-| 19 | cGWpMaKXVwDUNgPAVJbWYuGHVn9zl3j8 | `ssh bandit18@bandit.labs.overthewire.org "cat readme"` |
-| 20 | 0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO | `find / -perm -4000 -user bandit20 2>/dev/null` `./bandit20-do cat /etc/bandit_pass/bandit20` |
-| 21 | EeoULMCra2q0dSkYj561DX7s1CpBuOBt | `nc -l localhost 1234 &` `./suconnect 1234` |
-| 22 | tRae0UfB9v0UzbCdn9cY0gQnds9GF58Q | `cat /etc/cron.d/cronjob_bandit22` `cat /usr/bin/cronjob_bandit22.sh` `cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv`|
-| 23 | 0Zf11ioIjMVN551jX3CmStKLYqjk54Ga | `echo "I am bandit23 \| mdsum5 \| cut -d ' ' -f 1` |
-| 24 | gb8KRRCsshuZXI0tUuR6ypOFjiZbf3G8 | `cd /tmp` `mkdir myexploit` `nano /tmp/myexploit/exploit.sh` `cat /etc/bandit_pass/bandit24 > /tmp/myexploit/password.txt` `chmod 777 exploit.sh` `touch password.txt` `chmod 777 password.txt` `cp exploit.sh var/spool/bandit24/foo` |
-| 25 | iCi86ttT4KSNe1armKiwbQNmB3YJP3q4 | `nano tmp/loop.sh` `chmod 777 loop.sh` `touch list.txt` `chmod 777 list.txt` `./loop.sh` `cat list.txt \| nc localhost 30002` |
+| Level | Password Used To Reach The Level | Command Used | Explanation |
+| :--- | :--- | :--- | :--- |
+| 1 | ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If | `cat readme` | Simple cat command to read a file in the home directory |
+| 2 | 263JGJPfgU6LtdEvgfWU1XP5yac29mFx | `cat ./-` | Simple cat command with "./" before file name because - is a special character |
+| 3 | MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx | `cat ./"--spaces in this filename--"` | Simple cat command, since file name has spaces, they are under quotes and because it starts with double dash, we used "./" |
+| 4 | 2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ | `cd inhere` <br> `ls -a` | Changed directories and listed all hidden files to get the password |
+| 5 | 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw | `cd inhere` <br> `file ./*` | Changed directories to see which filetype among binary files would have the password (the one which returns ASCII text) |
+| 6 | HWasnPhtq9AVKe0dmk45nxy20cvUa6EG | `cd inhere` <br> `find . -type f -size 1033c ! -executable` | Finding a non-executable 1033 byte file in the inhere directory |
+| 7 | morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj | `find / -user bandit7 -group bandit6 -size 33c 2>/dev/null` | Finding a file of owner bandit7, but belonging to group bandit6 and having the size 33 bytes. Since there is a high likelihood that finding some files directly like this might lead to denied permissions, we used 2>/dev/null to remove those outputs |
+| 8 | dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc | `grep "millionth" data.txt"` | Simple grep function |
+| 9 | 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM | `sort data.txt \| uniq -u` | Sorting data is important before using uniq because uniq returns unique values which are not adjacent to each other |
+| 10 | FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey | `strings data.txt \| grep "=="` | The file had a lot of binary content, string prints the readable stuff, then grep |
+| 11 | dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr | `base64 -d data.txt` | Decoding data using base64 |
+| 12 | 7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4 | `cat data.txt \| tr 'A-Za-z' 'N-ZA-Mn-za-m'` | ROT13 was used so "translating" A->N, Z -> M |
+| 13 | FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn | `mktemp -d`<br>`cp ~/data.txt .`<br> `xxd -r data.txt > data2`<br> `mv data2 data2.gz \|\| gunzip data2.gz`<br> `bunzip2 data2`<br> `mv data2.out data2.gz \|\| gunzip data2.gz`<br>`tar -xf data2`<br> `tar -xf data5.bin`<br> `bunzip2 data6.bin`<br> `tar -xf data6.bin.out`<br> `mv data8.bin data8.bin.gz \|\| gunzip data8.bin.gz`<br> `cat data8.bin` | Made a temporary directory and copied the data.txt file there. Then we reversed the hexdump present and I redirected it to data2. Converted data2 to a gzip file and unzipped it. Followed by unzipping the subsequent bzip2 file. Process continued till I used tar to extract the file, and then lastly simple cat after all the decompression and unarchiving was done |
+| 14 | MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS | `scp -P 2220 bandit13@bandit.labs.overthewire.org:~/sshkey.private ./bandit14.id_rsa`<br> `chmod 600 bandit14.id_rsa`<br> `ssh -i bandit14.id_rsa bandit14@bandit.labs.overthewire.org -p 2220` | Copied the private key onto my personal system and changed permissions to read and write, then started the server using the identity flag so it doesn't ask for password and uses the key instead |
+| 15 | 8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo | `cat etc/bandit_pass/bandit14`<br> `nc localhost 30000`| Directly reading the bandit14 password then sending it to localhost:30000 using netcat which outputted next level password |
+| 16 | kSkvUpMQ7lBYyCM4GBPvCvT1BfWRy0Dx | `openssl s_client -connect localhost:30001` | Connecting via SSL/TLS to localhost:30001 for the next level's password |
+| 17 | EReVavePLFHtFlFsjn3hyzMlvSuSAcRD | `nmap -sV -p 31000-32000 localhost`<br> `openssl s_client -connect localhost:31790 -ign_eof` | Mapping open ports between 31000 and 32000 on the localhost and seeing what service they use and their version. Once found, opened that port and used the ignore end of file flag because the password of the previous level starts with k which leads to KEYUPDATE instead of registering that as input |
+| 18 | x2gLTTjFwMOhQ8oWNbMN362QKxfRqGlO | `diff passwords.new passwords.old` | Simple diff function to see what updated between 2 identical files |
+| 19 | cGWpMaKXVwDUNgPAVJbWYuGHVn9zl3j8 | `ssh bandit18@bandit.labs.overthewire.org "cat readme"` | Since the .bashrc was made such that login would auto logout, we directly used cat readme in tandem with the ssh connect request |
+| 20 | 0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO | `find / -perm -4000 -user bandit20 2>/dev/null`<br> `./bandit20-do cat /etc/bandit_pass/bandit20` | Finding all setuid files, then using the setuid file to print the password for the next level |
+| 21 | EeoULMCra2q0dSkYj561DX7s1CpBuOBt | `nc -l localhost 1234 &`<br> `./suconnect 1234` | Starting a port 1234 on localhost in the background with ampersand (&) and in the foreground using the setuid file to connect to port 1234 |
+| 22 | tRae0UfB9v0UzbCdn9cY0gQnds9GF58Q | `cat /etc/cron.d/cronjob_bandit22`<br> `cat /usr/bin/cronjob_bandit22.sh`<br> `cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv`| Simply read the cronjob instructions which lead to a shell script which led to the temporary folder with the password |
+| 23 | 0Zf11ioIjMVN551jX3CmStKLYqjk54Ga | `echo "I am bandit23 \| mdsum5 \| cut -d ' ' -f 1` | Echoed the shell script with the correct string value to find the folder name of the tmp file |
+| 24 | gb8KRRCsshuZXI0tUuR6ypOFjiZbf3G8 | `cd /tmp`<br> `mkdir myexploit`<br> `nano /tmp/myexploit/exploit.sh`<br> `cat /etc/bandit_pass/bandit24 > /tmp/myexploit/password.txt`<br> `chmod 777 exploit.sh`<br> `touch password.txt` `chmod 777 password.txt`<br> `cp exploit.sh var/spool/bandit24/foo` | Created an exploit shell script that was used to copy the password from bandit24 into password.txt and set permission to all owners, groups, and other users to read, write, and execute. Then copied the exploit folder into the folder that handles this data |
+| 25 | iCi86ttT4KSNe1armKiwbQNmB3YJP3q4 | `nano tmp/loop.sh`<br> `chmod 777 loop.sh`<br> `touch list.txt`<br> `chmod 777 list.txt`<br> `./loop.sh`<br> `cat list.txt \| nc localhost 30002` | Created a for loop using shell script and a list.txt file for it to store the loop's output, then fed the loop through piping to localhost:30002 to get the password |
