@@ -1,4 +1,4 @@
-| Level | Password Used To Reach The Level | Command Used | Explanation |
+| Level | Password Used To Reach The Level | Command Used Inside This Level | Explanation of Commands |
 | :--- | :--- | :--- | :--- |
 | 1 | ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If | `cat readme` | Simple cat command to read a file in the home directory |
 | 2 | 263JGJPfgU6LtdEvgfWU1XP5yac29mFx | `cat ./-` | Simple cat command with "./" before file name because - is a special character |
