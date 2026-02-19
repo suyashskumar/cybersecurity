@@ -33,3 +33,7 @@
 | 31 | fb5S2xb7bRyFmAvQYQGEqsbhVyJqhnDy | `git tag` <br> `git show [tag name]` | Since there were no other branches, or old commit logs, the third option is tag, which is a static pointer that marks a history of the repo as important. git show can be used to see tags as well, in this case we saw a tag called "secret" which contained the password |
 | 32 | 3O9RfhqyAlVBEZpVb6LYStshZoqoSx5K | `ls -a` <br> `cat README.md` <br> `nano key.txt` <br> `git add -f key.txt` <br> `git commit -m "test"` <br> `git push` | Apparently gitignore is a hidden file and it has *.txt on it so you have to use the -f flag to force push your .txt file |
 | 33 | tQdtbs5D5i2vJwkO8mEyYEyTL8izoeJ0 | `$0`<br> `cat /etc/bandit_pass/bandit33` | Due to the shell script, whatever we type turns to upper case and the Linux command line is case sensitive so we can't run anything. $0 is a special variable that stands for "current shell" (and doesn't have an uppercase alternative so the system reads it as is) and the system replaces $0 with the actual path to a real shell, after which you can just obtain the password to the next level with simple cat |
+
+--
+
+Thank you for reading.
