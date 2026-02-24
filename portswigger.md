@@ -2,6 +2,8 @@
 
 This document serves as a comprehensive reference guide for SQL Injection vulnerabilities, payloads, and bypass techniques based on the PortSwigger Web Security Academy SQLi learning path.
 
+This link can be referred to as a payload cheat sheet depending on the SQL database being used: https://portswigger.net/web-security/sql-injection/cheat-sheet
+
 ## Core Concepts & Mechanics
 * The majority of SQL injections occur within the `WHERE` clause of a `SELECT` query.
 * Other injection points include `UPDATE` statements (within updated values or `WHERE` clauses), `INSERT` statements (within inserted values), and `SELECT` statements (within table/column names or `ORDER BY` clauses).
