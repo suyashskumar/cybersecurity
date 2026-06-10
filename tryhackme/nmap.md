@@ -43,3 +43,5 @@
 | nmap HOSTNAME -oX FILENAME | XML output to FILENAME.xml |
 | nmap HOSTNAME -oG FILENAME | grep-able output to FILENAME.gnmap |
 | nmap HOSTNAME -oA FILENAME | output in all major formats, like .nmap, .xml, .gnmap for normal, xml and grep-able output respectively. |
+
+**Note**: Use it with sudo if you're not the root user. Otherwise -sS will default to -sT. 
