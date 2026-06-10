@@ -6,7 +6,7 @@ Hydra is a password-cracking tool. Can be used for brute-forcing web forms as we
 
 ### SSH
 
-**hydra -l `username` -P `password file full path` `IP-ADDRESS` -t `number` ssh**
+**`hydra -l username -P wordlist.txt IP-ADDRESS -t number ssh`**
 
 | Flag | Description |
 | :--- | :--- |
@@ -17,7 +17,7 @@ Hydra is a password-cracking tool. Can be used for brute-forcing web forms as we
 
 ### POST Web Form
 
-**hydra -l `username` -P `wordlist` `IP-ADDRESS` http-post-form "path:username=^USER^&password=^PASS^:F=incorrect" -s `port` -V** 
+**`hydra -l username -P wordlist.txt IP-ADDRESS http-post-form "path:username=^USER^&password=^PASS^:F=incorrect" -s port -V`** 
 
 | Flag | Description |
 | :--- | :--- |
