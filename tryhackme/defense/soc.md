@@ -184,3 +184,32 @@ Log ingestion:
 | `sudo ufw allow/deny <port-number>/<protocol>` | Allow/deny incoming traffic on specific port and protocol. E.g.: `sudo ufw deny 22/tcp` |
 | `sudo ufw status numbered` | List all active rules in numbered order | 
 | `sudo ufw delete <number>` | Delete a rule using the rule number from the above command |
+
+# Intrusion Detection System (IDS)
+
+Deployment Modes:
+- Host IDS (HIDS): resource-intensive, harder to manage in large networks
+- Network IDS (NIDS): provides centralized view inside the whole network
+
+Detection Modes:
+- Signature-based IDS: quick detection, good for small threat surface, unable to detect zero-day attacks
+- Anomaly-based IDS: compares current state with baseline, can detect zero-day attacks, risk of false positives, can be fine-tuned by defining normal behavior
+- Hybrid IDS: signature-based for old threats, anomaly-based for new threats
+
+### Snort
+
+Open-source IDS solution developed in 1998.
+
+| Mode | Description | Use Case |
+| :--- | :--- | :--- |
+| Packet Sniffer Mode | Reads and displays network packets without analysis. | Network monitoring and troubleshooting |
+| Packet Logging Mode | Log network traffic as a PCAP file | Forensic investigations and root cause analysis (RCA) |
+| NIDS Mode | Uses predefined, comprehensive set of rules to match attack patterns (signature-based) | Proactive monitoring and detection |
+
+| Commands | Description |
+| :--- | :--- |
+| `/etc/snort` or `/usr/local/etc/snort` | File path |
+| `sudo nano /etc/snort/rules/local.rules` | Rule creation |
+| `alert icmp any any -> 127.0.0.1 any (msg: "Loopback detected"; sid: 100003; rev:1;)` | Rule format, pasted in the local.rules file<br>- alert = **action**<br> - icmp = **protocol**<br> - any any = **source IP and port respectively**<br> - 127.0.0.1 any = **destination IP and port respectively**<br> - (msg: "Loopback detected; sid: 100003; rev:1;) = **rule metadata** (includes Message, Signature ID, Rule revision (number of times rule is revised/updated)) |
+| `sudo snort -q -l /var/log/snort -i lo -A alert_fast -c /etc/snort/snort.lua` | Rule testing. `lo` = loopback interface name (changeable), `/etc/snort/snort.lua` is the config file |
+| `sudo snort -q -l /var/log/snort -r Task.pcap -A alert_fast -c /etc/snort/snort.lua` | Running snort on PCAP file titled "Task" |
