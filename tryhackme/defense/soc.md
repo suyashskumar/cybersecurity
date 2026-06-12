@@ -143,3 +143,44 @@ Log ingestion:
 2. Syslog: protocol
 3. Manual upload: Ingest offline data (example: Splunk, ELK - Elasticsearch, Logstash, Kibana)
 4. Port forwarding: SIEM listening on a port
+
+# Firewall
+
+## Types of Firewall
+
+| Firewalls | Characteristics |
+| :--- | :--- |
+| Stateless firewalls | - Layer 3 and 4 of OSI<br>- Basic filtering<br>- No track of previous connections<br>- Efficient for high-speed networks |
+| Stateful firewalls | - Layer 3 and 4 of OSI<br>- Recognize traffic by patterns<br>- Complex rules can be applicable<br>- Monitor the network connections |
+| Proxy firewalls | - Layer 7 of OSI<br>- Inspect the data inside the packets as well<br>- Provides content filtering options<br>- Provides application control<br>- Decrypts and inspects SSL/TLS data packets |
+| Next-generation firewalls | - Layer 3 to 7 of OSI<br>- Provides advanced threat protection<br>- Comes with an intrusion prevention system<br>- Identify anomalies based on heuristic analysis<br>- Decrypts and inspects SSL/TLS data packets |
+
+## Rules in Firewall
+
+| **Basic Components** | **Type of Actions** | **Type of Directions** |
+| :--- | :--- | :---|
+| Source Address | Allow | Inbound Rules
+| Destination Address | Deny | Outbound Rules
+| Port | Forward | Forward Rules
+| Protocol | | |
+| Action | | |
+| Direction | | |
+
+## Firewall Tools
+
+1. Windows - Windows Defender Firewall (Advanced Settings)
+2. Linux -
+  - Netfilter: a framework with core firewall functionalities
+    - iptables: widely used utility
+    - nftables: advanced version of iptables (enhanced packet filtering and NAT)
+    - firewalld: predefined rules, pre-built network zone configs
+  - ufw: (uncomplicated firewall) provides an easier interface for beginners
+
+| ufw Commands | Description |
+| :--- | :--- |
+| `sudo ufw status` | Check the status of the firewall (Enabled.Disabled) |
+| `sudo ufw enable/disable` | Enable or disable firewall |
+| `sudo ufw default allow/deny outgoing/incoming` | Creating a default policy with type of action and direction |
+| `sudo ufw allow/deny <port-number>/<protocol>` | Allow/deny incoming traffic on specific port and protocol. E.g.: `sudo ufw deny 22/tcp` |
+| `sudo ufw status numbered` | List all active rules in numbered order | 
+| `sudo ufw delete <number>` | Delete a rule using the rule number from the above command |
