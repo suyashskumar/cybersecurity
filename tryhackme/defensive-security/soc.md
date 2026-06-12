@@ -244,3 +244,7 @@ Types of scans:
 - 4.0-6.9: Medium
 - 7.0-8.9: High
 - 9.0-10: Critical
+
+# Defensive Security Tooling
+
+- Cyberchef: https://gchq.github.io/CyberChef/
