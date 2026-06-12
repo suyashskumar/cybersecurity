@@ -213,3 +213,34 @@ Open-source IDS solution developed in 1998.
 | `alert icmp any any -> 127.0.0.1 any (msg: "Loopback detected"; sid: 100003; rev:1;)` | Rule format, pasted in the local.rules file<br>- alert = **action**<br> - icmp = **protocol**<br> - any any = **source IP and port respectively**<br> - 127.0.0.1 any = **destination IP and port respectively**<br> - (msg: "Loopback detected; sid: 100003; rev:1;) = **rule metadata** (includes Message, Signature ID, Rule revision (number of times rule is revised/updated)) |
 | `sudo snort -q -l /var/log/snort -i lo -A alert_fast -c /etc/snort/snort.lua` | Rule testing. `lo` = loopback interface name (changeable), `/etc/snort/snort.lua` is the config file |
 | `sudo snort -q -l /var/log/snort -r Task.pcap -A alert_fast -c /etc/snort/snort.lua` | Running snort on PCAP file titled "Task" |
+
+# Vulnerability Scanning
+
+Vulnerability: weaknesses in system that attackers can exploit.<br>
+Patching: process of mitigating these weaknesses. <br>
+
+Types of scans:
+- Authenticated scans: deeper scans with authentication details of the subject host. Usually conducted from inside the network (*Internal Scan*).
+- Unauthenticated scans: faster scans with only the IP address of the target. Usually conducted from outside the network (*External Scan*).
+
+### Tools for Vulnerability Scanning
+
+- Nessus: used to be open-source from 1998, now is properietary to Tenable since 2005. Has free and paid versions.
+- Qualys: 1998 subscription-based, good for asset management and compliance checks in addition to scanning, cloud-based.
+- Nexpose: 2005 by Rapid7, also sub-based, both on-premises and hybrid deployment modes.
+- OpenVAS: open-source vulnerability assessment solution by Greenbone Security, good for smaller companies.
+  - `sudo apt install docker.io`
+  - `sudo docker run -d -p 443:443 --name openvas immauss/openvas`
+
+### CVE - Common Vulnerabilities and Exposures
+
+- CVE Prefix: every CVE number has "CVE" as prefix.
+- Year: the year it was discovered
+- Arbitrary Digits: four or more digits for unique value
+
+### CVSS - Common Vulnerability Scoring System
+
+- 0.0-3.9: Low
+- 4.0-6.9: Medium
+- 7.0-8.9: High
+- 9.0-10: Critical
