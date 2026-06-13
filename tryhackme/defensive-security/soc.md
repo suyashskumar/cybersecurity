@@ -248,4 +248,3 @@ Types of scans:
 # Defensive Security Tooling
 
 - Cyberchef: https://gchq.github.io/CyberChef/
-- [CAPA:](capa.md): https://mandiant.github.io/capa/explorer/#/

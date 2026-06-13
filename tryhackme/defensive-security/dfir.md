@@ -99,3 +99,8 @@ Techniques:
 - EDR
 - Playbooks: step-by-step instructions to deal with each kind of Incident
 - Runbooks: step-by-step execution of specific steps during different incidents. Resource-dependent.
+
+# Tools
+
+- [CAPA:](capa.md): https://mandiant.github.io/capa/explorer/#/
+- [REMNux VM:](remnux.md): Specialized Linux distro with tools like Volatility, YARA, Wireshark, oledump, INetSim
