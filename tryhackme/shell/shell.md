@@ -1,3 +1,121 @@
+# Windows CLI
+
+| Command | Utility |
+| :--- | :--- |
+| **Basic system information** | |
+| `set` | Check your path |
+| `ver` | Determine OS version |
+| `systeminfo` | OS information, system details, processor, memory |
+| `help` | For help |
+| `cls` | Clear screen |
+| `<command> \| more` | For multi-page commands, press `space` to navigate |
+| `driverquery` | Displays a list of installed device drivers |
+| **Network troubleshooting** | |
+| `ipconfig` / `ipconfig /all` | IP address, subnet mask, default gateway |
+| `ping target_name` | Send ICMP packet and listen for response, to check if website is online or not. Target_name = website name/ip address |
+| `tracert target_name` | Trace route |
+| `nslookup target_name` / `nslookup target_name 1.1.1.1` | Looks up host and returns IP address |
+| `netstat` | Current network connections and listening ports.<br> `-a`: all established connections and listening ports <br> `-b`: shows program associated with each port and established connection <br> `-o`: reveals PID associated with each connection <br> `-n`: numerical form of each port and address |
+| **File and disk management** | |
+| `cd` | Current directory |
+| `dir` | Child directories <br> `dir /a`: display hidden and system files <br> `dir /s`: display files in current directory and all subdirectories |
+| `tree` | Visually represent child and subdirectories |
+| `mkdir name` | Make directory |
+| `rmdir name` | Remove directory |
+| `type file.name` / `more file.name` | View text files |
+| `copy file1.txt file2.txt` | Copy files |
+| `move file1.txt ..` | Move files |
+| `del file.name` / `erase file.name` | Delete files |
+| `chkdsk` | Checks the file system and disk volumes for errors and bad sectors |
+| `sfc /scannow` | Scans system files for corruption and repairs them if possible | 
+| **Task and process management** | |
+| `tasklist` | List running processes. Check all available filters using `tasklist /?`. Example: `tasklist /FI "imagename eq image.name"` (filter image name equals image.name) |
+| `taskkill` | Use with PID flag to stop a process. `taskkill /PID pid_number` |
+| `shutdown` | `shutdown /s`: Shutdown a system <br> `shutdown /r`: Restart a system <br> `shutdown /a`: Abort a scheduled system shutdown |
+| `powershell` | Run Powershell |
+
+# Windows Powershell
+
+They were made using an object-oriented approach, allowing for more powerful data manipulation. The commands are known as command-lets (cmdlets) and follow a consistent Verb-Noun naming convention.
+
+| Command | Utility |
+| :--- | :--- |
+| **Basics** | |
+| `Get-Command` | Lists all available cmdlets. `Get-Command -CommandType "Type"` retrieves commands of type Type. |
+| `Get-Help <cmdlet>` | Help function to understand a cmdlet. `-examples` property adds examples too |
+| `Get-Date` | Gets current date and time |
+| `Get-Alias` | Some cmdlets have aliases from Windows CLI |
+| `Find-Module` | Downloads additional cmdlets from online repositories. `Cmdlet -Property "pattern*"` is the syntax. Example property for Find-Module: `Find-Module -Name "Powershell*"` gets all repos with powershell in their name and more (due to *) |
+| `Install-Module` | Installs a module from online repository. (Module = set of cmdlets) Usage: `Install-Module -Name "Name"` |
+| `Write-Output` | Repeats the input in the console, like `echo` |
+| **File manipulation** | |
+| `Get-ChildItem` | Lists files and directories located inside a path. Usage: `Get-ChildItem -Path "C:/Path"` |
+| `Set-Location` | Sets the current directory. Usage: `Set-Location -Path "C:/Path"` |
+| `New-Item` | Creates a new item of any type. Usage: `New-Item -Path "./Path" -ItemType "File/Directory"` |
+| `Remove-Item` | Removes an item. Usage: `Remove-Item -Path "./Path/File.txt"` |
+| `Copy-Item` | Copy an item from one path to a destination path. Usage: `Copy-Item -Path "./OriginalPath" -Destination "./NewPath"` |
+| `Move-Item` | Move an item from one path to a destination path. Usage: `Move-Item -Path "./OriginalPath" -Destination "./NewPath"` |
+| `Get-Content` | Gets the content of the file and displays it on console. Usage: `Get-Content -Path "C:/Path"` |
+| `Get-Item` | Gets details about an item at a particular path. Usage: `Get-Item -Path "C:/Path"`. `-Stream *` property can be used to view attached Alternate Data Streams (ADS). `$DATA` is the default data stream of NTFS files, anything apart from that is potentially an ADS |
+| **Piping, Filering, Sorting Data** | Piping can be used using `\|` to send the output of the first command (in PS, its an object) as the input for the second command |
+| `Sort-Object` | Sort objects based on a property. Usage: `Get-ChildItem \| Sort-Object Length`. Length is size of the object |
+| `Where-Object` | Filters objects based on certain properties. Example: `Get-ChildItem \| Where-Object -Property "Extension" -eq ".txt"`<br> Comparison operators: <br> `-eq`: equal to <br> `-ne`: not equal <br> `-gt`: greater than <br> `-ge`: greater than equal to <br> `-lt`: less than <br> `-le`: less than equal to <br> `-like pattern*` property can also be used for similarity/pattern-based filtering |
+| `Select-Object` | Selects specific properties from objects or limit number of objects returned. Usage: `Get-ChildItem \| Select-Object Name,Length`. Use property `-First <number>` to get the first x number of results. | 
+| `Select-String` | Searches for text patterns within files. Usage: `Select-String -Path "./Path" -Pattern "pattern"` |
+| **System and Network Information** | |
+| `Get-ComputerInfo` | Retrieves comprehensive system information, including operating system information, hardware specifications, BIOS details, and more |
+| `Get-LocalUser` | Lists all local user accounts on the system |
+| `Get-NetIPConfiguration` | Provides detailed information about the network interfaces on the system, including IP addresses, DNS servers, and gateway configurations |
+| `Get-NetIPAddress` | Shows details for all IP addresses configured on the system, including those that are not currently active |
+| **Real-time System Analysis** | |
+| `Get-Process` | Provides a detailed view of all currently running processes |
+| `Get-Service` | Allows the retrieval of information about the status of services on the machine |
+| `Get-NetTCPConnection` | Displays current TCP connections. (Note: handy during an incident response or malware analysis task, as it can uncover hidden backdoors or established connections towards an attacker-controlled server) |
+| `Get-FileHash` | Generating file hashes, helps verify integrity | 
+| `Invoke-Command` | Executes commands on local and remote computers. Usage: <br> `Invoke-Command -FilePath c:\scripts\test.ps1 -ComputerName Server01` (for local) <br> `Invoke-Command -ComputerName Server01 -Credential Domain01\User01 -ScriptBlock { Get-Service }` (for remote, the cmdlet inside {} is the command to be run on the remote system) | 
+
+## Comparing all 3 CLI languages
+
+| Windows CLI | PowerShell | Linux |
+|------------|------------|--------|
+| `help` | `Get-Help` | `man`, `--help` |
+| `cls` | `Clear-Host` (`cls` alias) | `clear` |
+| `set` | `Get-ChildItem Env:` / `Get-Item Env:` | `env`, `printenv` |
+| `ver` | `Get-ComputerInfo` | `uname -a`, `hostnamectl` |
+| `systeminfo` | `Get-ComputerInfo` | `hostnamectl`, `lscpu`, `free`, `uname -a` |
+| `cd` | `Set-Location` | `cd` |
+| `dir` | `Get-ChildItem` | `ls` |
+| `tree` | `tree` | `tree` |
+| `mkdir` | `New-Item -ItemType Directory` | `mkdir` |
+| `rmdir` | `Remove-Item` | `rmdir`, `rm -r` |
+| `type`, `more` | `Get-Content` | `cat`, `less`, `more` |
+| `copy` | `Copy-Item` | `cp` |
+| `move` | `Move-Item` | `mv` |
+| `del`, `erase` | `Remove-Item` | `rm` |
+| `findstr` | `Select-String` | `grep` |
+| `<command> \| more` | `<command> \| Out-Host -Paging` | `<command> \| less` |
+| `ipconfig` | `Get-NetIPConfiguration` | `ip addr`, `ifconfig` |
+| `ping` | `Test-Connection` | `ping` |
+| `tracert` | `Test-NetConnection -TraceRoute` | `traceroute`, `tracepath` |
+| `nslookup` | `Resolve-DnsName` | `nslookup`, `dig`, `host` |
+| `netstat` | `Get-NetTCPConnection` | `netstat`, `ss` |
+| `tasklist` | `Get-Process` | `ps`, `top` |
+| `taskkill` | `Stop-Process` | `kill`, `pkill` |
+| `shutdown /s` | `Stop-Computer` | `shutdown -h now`, `poweroff` |
+| `shutdown /r` | `Restart-Computer` | `reboot`, `shutdown -r now` |
+| `driverquery` | `Get-CimInstance Win32_PnPSignedDriver` | `lsmod`, `modinfo` |
+| `chkdsk` | `Repair-Volume` | `fsck` |
+| `sfc /scannow` | `Repair-WindowsImage`, `sfc` |  |
+|  | `Get-Date` | `date` |
+|  | `Get-LocalUser` | `getent passwd`, `cat /etc/passwd` |
+|  | `Get-Service` | `systemctl`, `service` |
+|  | `Get-FileHash` | `sha256sum`, `md5sum`, `sha1sum` |
+|  | `Invoke-Command` | `ssh`, `pdsh`, `ansible` |
+| `sort` | `Sort-Object` | `sort` |
+| `findstr` | `Where-Object` | `grep`, `awk` |
+|  | `Select-Object` | `cut`, `awk`, `head` |
+| `echo` | `Write-Output` | `echo` |
+
 # Reverse Shell
 
 Commonly referred to as the "connect back shell," it allows an attacker to execute commands remotely after the target connects back.
