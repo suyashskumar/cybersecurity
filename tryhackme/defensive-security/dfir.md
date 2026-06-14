@@ -102,6 +102,6 @@ Techniques:
 
 # Tools
 
-- [CAPA:](capa.md): https://mandiant.github.io/capa/explorer/#/
-- [REMNux VM:](remnux.md): Specialized Linux distro with tools like Volatility, YARA, Wireshark, oledump, INetSim
-- [FlareVM:](flarevm.md): Comprehensive and carefully curated collection of specialized tools uniquely designed to meet the specific needs of reverse engineers, malware analysts, incident responders, forensic investigators, and penetration testers by FireEye.
+- [CAPA](capa.md): https://mandiant.github.io/capa/explorer/#/
+- [REMNux VM](remnux.md): Specialized Linux distro with tools like Volatility, YARA, Wireshark, oledump, INetSim
+- [FlareVM](flarevm.md): Comprehensive and carefully curated collection of specialized tools uniquely designed to meet the specific needs of reverse engineers, malware analysts, incident responders, forensic investigators, and penetration testers by FireEye.
