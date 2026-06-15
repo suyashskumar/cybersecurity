@@ -1,3 +1,0 @@
-# Hashcat
-
-# John the Ripper
