@@ -26,6 +26,7 @@
 | nmap -F |scans as Fast mode, 100 most common ports instead of the default 1000 |
 | nmap -p | provide the ports for a range. Example usage: nmap -p- (for all ports from 1-65535), nmap -p-1024 (from ports 1-1024: the well-known ports), nmap -p10-100 (from ports 10-100) |
 | nmap -Pn | for hosts that appear down, makes nmap assume all hosts are online |
+| nmap -sC | To run default NSE (Nmap Security Engine) scripts. Used alongside -sV for initial recon |
 | **Service Detection** | |
 | nmap -O | used for OS detection |
 | nmap -sV | used for service and version detection |

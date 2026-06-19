@@ -33,6 +33,7 @@ For the Attack Box on TryHackMe, we needed to change the `/etc/resolv-dnsmasq` f
 | `-b` | `--status-codes-blacklist` | This flag allows you to configure which status codes of the received responses you don't want to display. Configuring this flag overrides the `-s` flag. |
 | `-U` | `--username` | You can set this flag together with the `--password` flag to execute authenticated requests. This is handy when you have obtained credentials from a user. |
 | `-r` | `--followredirect` | This flag configures Gobuster to follow the redirect that it received as a response to the sent request. An HTTP redirect status code (e.g., `301` or `302`) is used to redirect the client to a different URL. |
+| `-u` | | For the URL that is supposed to be enumerated |
 
 **Example Usage**: `gobuster dir -u "http://www.example.thm" -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -r`
 
