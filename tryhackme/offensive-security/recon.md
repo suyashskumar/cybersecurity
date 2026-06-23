@@ -38,3 +38,31 @@
 | POP3 | 110 | Email (MDA) | Cleartext | POP3S | 995 |
 | SMTP | 25 | Email (MTA) | Cleartext | SMTPS or SMTP with STARTTLS | 465 (SMTPS), 587 (Submission) |
 | Telnet | 23 | Remote Access | Cleartext | SSH | 22 |
+
+# Tools
+
+| Tool | Purpose |
+|------|---------|
+| Wireshark / tcpdump | Network packet capture and analysis |
+| Bettercap | MITM attacks, ARP spoofing, and network reconnaissance |
+| mitmproxy | Interactive HTTPS proxy for inspecting and modifying traffic |
+| testssl.sh | Testing TLS/SSL configuration and vulnerabilities |
+| Nmap | Port scanning, service detection, and scripting |
+| CrackMapExec / NetExec | Password spraying and lateral movement in Windows environments |
+| Hashcat / John the Ripper | Offline password hash cracking |
+| Burp Suite | Web application security testing |
+
+# Checklist
+
+When assessing or securing systems, verify the following:
+
+1. All services use TLS 1.2 or TLS 1.3 with strong cipher suites.
+2. Cleartext protocols (Telnet, FTP, HTTP) are disabled or restricted to isolated networks.
+3. SSH uses key-based authentication with password authentication disabled.
+4. Strong password policies are enforced with breached password detection.
+5. Account lockout or rate limiting is implemented for all authentication endpoints.
+6. Multi-factor authentication is enabled for sensitive systems.
+7. Network segmentation limits the impact of sniffing attacks.
+8. Certificate validation is properly implemented to prevent MITM attacks.
+9. HSTS (HTTP Strict Transport Security) is enabled for web applications to prevent SSL stripping.
+10. Logging and monitoring detect authentication anomalies.

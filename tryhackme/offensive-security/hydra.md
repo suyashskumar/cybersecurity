@@ -4,16 +4,22 @@ Hydra is a password-cracking tool. Can be used for brute-forcing web forms as we
 
 ## Commands
 
-### SSH
+### Protocol Based
 
-**`hydra -l username -P wordlist.txt IP-ADDRESS -t number ssh`**
+**`hydra -l username -P wordlist.txt IP-ADDRESS -t number protocol`**
 
 | Flag | Description |
 | :--- | :--- |
 | -l | specifies the SSH username for login |
 | -P | indicates a list of passwords |
 | -t | sets the number of threads to spawn |
-| ssh | names the protocol, can be anything else too like ftp then it'll check on port 21 |
+| protocol | `ssh`, `ftp`, `imap`, etc. |
+| -L users.txt | Provide a file containing usernames |
+| -p password | Provide a single password to try |
+| server service | Set the server address and service to attack |
+| -w n | Wait time between connections in seconds |
+| -f | Stop after the first valid credential found |
+| -d | Display debugging output if verbose output is not helping |
 
 ### POST Web Form
 
